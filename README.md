@@ -17,6 +17,9 @@ docker-compose up
 ```
 Service identify
 ```
+netstat -nltp
+```
+```
 nmap -p8080 127.0.0.1
 ```
 Technology identify
