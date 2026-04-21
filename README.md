@@ -20,7 +20,7 @@ Service identify
 netstat -nltp
 ```
 ```
-nmap -p8080 127.0.0.1
+nmap -sV -p8080 127.0.0.1 --script=http*
 ```
 Technology identify
 ```
