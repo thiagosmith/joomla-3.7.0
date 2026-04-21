@@ -1,7 +1,47 @@
 # Joomla 3.7.0 Vulnarable
-
-wget 
-
+Docker and docker compose install
+```
+apt install docker.io docker-compose -y
+```
+Start docker service
+```
+systemctl start docker
+```
+Download docker-compose file
+```
+wget https://raw.githubusercontent.com/thiagosmith/joomla-3.7.0/refs/heads/main/docker-compose.yml
+```
+Download and execute docker
+```
+docker-compose up
+```
+Service identify
+```
+nmap -p8080 127.0.0.1
+```
+Technology identify
+```
+whatweb -v http://127.0.0.1:8080
+```
+JoomScan Download
+```
 git clone https://github.com/rezasp/joomscan.git
+```
+Directory access
+```
 cd joomscan
+```
+JoomScan execute
+```
 perl joomscan.pl
+```
+Scanning WebApp
+```
+perl joomscan.pl -u http://127.0.0.1:8080
+```
+
+```
+
+```
+
+```
